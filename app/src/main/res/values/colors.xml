@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00A2ED</color>
+    <color name="colorPrimaryDark">#0084ED</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="follow_image_pressed">#999</color>
+    <color name="follow_image_normal">#ddd</color>
+    <color name="mask">#aaFF4081</color>
+    <color name="read_title">#777777</color>
+    <color name="unread_title">#262626</color>
+    <color name="drawer_item_selected">#F0F0F0</color>
+    <color name="drawer_item_normal">#ffffff</color>
+    <color name="list_background">#F3F3F3</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="overlay_grey">#FFAFAFAF</color>
+</resources>

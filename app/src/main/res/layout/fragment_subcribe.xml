@@ -1,0 +1,18 @@
+<android.support.v4.widget.SwipeRefreshLayout android:id="@+id/swipe_refresh_subscribed"
+                                              xmlns:android="http://schemas.android.com/apk/res/android"
+                                              xmlns:tools="http://schemas.android.com/tools"
+                                              android:layout_width="match_parent"
+                                              android:layout_height="match_parent"
+                                              tools:context="com.dengit.openzhihudaily.fragment.SubscribeFragment">
+
+
+    <ListView
+        android:id="@+id/theme_news_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="@null"
+        android:background="@color/list_background"
+        android:listSelector="@color/transparent"/>
+
+</android.support.v4.widget.SwipeRefreshLayout>

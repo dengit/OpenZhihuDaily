@@ -1,0 +1,14 @@
+<resources>
+    <!--<string name="app_name">NewZhihuDaily</string>-->
+    <string name="app_name">Open知日</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="unfav">取消收藏</string>
+    <string name="fav">已收藏</string>
+</resources>
