@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/preferences_category_general">
+        <CheckBoxPreference android:id="@+id/preferences_auto_offline" android:defaultValue="true"
+                            android:key="@string/preference_key_auto_offline_open"
+                            android:summary="@string/preferences_auto_offline_prompt"
+                            android:title="@string/preferences_auto_offline" />
+        <CheckBoxPreference android:id="@+id/preferences_no_image_mode" android:defaultValue="false"
+                            android:key="@string/preference_key_no_image_mode_open"
+                            android:summary="@string/preferences_no_image_mode_prompt"
+                            android:title="@string/preferences_no_image_mode" />
+        <CheckBoxPreference android:id="@+id/preferences_big_font_mode" android:defaultValue="false"
+                            android:key="@string/preference_key_big_font_mode_open"
+                            android:title="@string/preferences_bit_font_mode" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_category_other">
+        <CheckBoxPreference android:id="@+id/preferences_push" android:defaultValue="true"
+                            android:key="@string/preference_key_push_open"
+                            android:title="@string/preferences_push" />
+        <CheckBoxPreference android:id="@+id/preferences_comment_share" android:defaultValue="true"
+                            android:key="@string/preference_key_comment_share_open"
+                            android:title="@string/preferences_comment_share" />
+        <Preference android:id="@+id/preferences_cache_clear"
+                    android:key="@string/preference_key_cache_clear"
+                    android:title="@string/preferences_cache_clear" />
+        <Preference android:id="@+id/preferences_app_check"
+                    android:key="@string/preference_key_app_check"
+                    android:title="@string/preferences_app_check" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/preferences_category_feedback">
+        <Preference android:id="@+id/preferences_feedback"
+                    android:key="@string/preference_key_feedback"
+                    android:title="@string/preferences_feedback" />
+    </PreferenceCategory>
+</PreferenceScreen>
