@@ -1,14 +1,49 @@
 <resources>
     <!--<string name="app_name">NewZhihuDaily</string>-->
     <string name="app_name">Open知日</string>
-
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">设置选项</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="unfav">取消收藏</string>
     <string name="fav">已收藏</string>
+
+    <!-- Strings related to Settings -->
+
+    <string name="preference_key_app_check">key_app_check</string>
+    <string name="preference_key_app_upgrade_reminder">key_app_upgrade_reminder</string>
+    <string name="preference_key_auto_offline_open">key_auto_offline_open</string>
+    <string name="preference_key_big_font_mode_open">key_big_font_mode_open</string>
+    <string name="preference_key_cache_clear">key_cache_clear</string>
+    <string name="preference_key_comment_share_open">key_comment_share_open</string>
+    <string name="preference_key_dark_mode_open">key_dark_mode_open</string>
+    <string name="preference_key_feedback">key_feedback</string>
+    <string name="preference_key_guide_is_viewed">key_guide_is_viewed</string>
+    <string name="preference_key_last_cache_time">key_last_cache_time</string>
+    <string name="preference_key_last_offline_time">key_last_offline_time</string>
+    <string name="preference_key_no_image_mode_open">key_no_image_mode_open</string>
+    <string name="preference_key_push_open">key_push_open</string>
+    <string name="preference_key_recommendation_reminder">key_recommendation_reminder</string>
+    <string name="preference_key_shake_to_dark_mode_open">key_shake_to_dark_mode_open</string>
+    <string name="preference_key_test_server">key_test_server</string>
+    <string name="preference_test_server">测试服务器</string>
+    <string name="preferences_app_check">检查更新</string>
+    <string name="preferences_auto_offline">自动离线下载</string>
+    <string name="preferences_auto_offline_prompt">仅 Wi-Fi 下可用，自动下载最新内容</string>
+    <string name="preferences_bit_font_mode">大字号</string>
+    <string name="preferences_cache_clear">清除缓存</string>
+    <string name="preferences_cache_clear_success">清理成功</string>
+    <string name="preferences_category_feedback">反馈</string>
+    <string name="preferences_category_general">常规</string>
+    <string name="preferences_category_other">其它</string>
+    <string name="preferences_comment_share">点评分享到微博</string>
+    <string name="preferences_dark_mode">夜间模式</string>
+    <string name="preferences_feedback">意见反馈</string>
+    <string name="preferences_no_image_mode">无图模式</string>
+    <string name="preferences_no_image_mode_prompt">2G/3G 网络下不下载图片</string>
+    <string name="preferences_offline">立即离线下载</string>
+    <string name="preferences_push">推送消息</string>
+    <string name="preferences_shake_to_dark_mode">摇一摇夜间/白天模式</string>
+    <string name="preferences_shake_to_dark_mode_prompt">仅首页/文章页可用</string>
+
 </resources>

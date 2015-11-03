@@ -1,7 +1,6 @@
 package com.dengit.openzhihudaily.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,11 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dengit.openzhihudaily.R;
-import com.dengit.openzhihudaily.data.AppDB;
 import com.dengit.openzhihudaily.model.NewsListElement;
-import com.dengit.openzhihudaily.utils.ThreadPoolUtils;
 import com.squareup.picasso.Picasso;
-
 
 import java.util.ArrayList;
 
@@ -39,19 +35,6 @@ public class FavNewsListAdapter extends BaseAdapter {
         mInflater = LayoutInflater.from(context);
         mFavNewsListData = new ArrayList<>();
         mReadColor = mContext.getResources().getColor(R.color.read_title);
-        ThreadPoolUtils.execute(new Runnable() {
-            @Override
-            public void run() {
-                AppDB.instance(context).loadFavNewsList(mFavNewsListData);
-                Log.d("**", "mFavNewsListData.size(): " + mFavNewsListData.size());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        notifyDataSetChanged();
-                    }
-                });
-            }
-        });
     }
 
     @Override
@@ -99,5 +82,10 @@ public class FavNewsListAdapter extends BaseAdapter {
 
 
         return convertView;
+    }
+
+    public void resetListData(ArrayList<NewsListElement> data) {
+        mFavNewsListData.clear();
+        mFavNewsListData.addAll(data);
     }
 }

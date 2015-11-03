@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
@@ -38,7 +37,7 @@ public class LoadingActivity extends AppCompatActivity {
 
         final String resolution = "" + outMetrics.widthPixels + "*" + outMetrics.heightPixels;
 
-        final ScaleAnimation scaleAnimation = new ScaleAnimation(1f, 1.15f, 1f, 1.15f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        final ScaleAnimation scaleAnimation = new ScaleAnimation(1f, 1.1f, 1f, 1.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         scaleAnimation.setDuration(3000);
         scaleAnimation.setInterpolator(this, android.R.anim.accelerate_decelerate_interpolator);
 

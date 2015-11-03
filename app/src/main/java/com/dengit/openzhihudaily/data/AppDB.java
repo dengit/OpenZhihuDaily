@@ -321,7 +321,7 @@ public class AppDB {
 
             mDatabase.delete("theme_news", "theme_id=" + mThemeId, null);
 
-            int orderId  = 1;
+            int orderId = 1;
             for (Iterator<Integer> it = newSet.iterator(); it.hasNext(); ) {
                 int newsId = it.next();
 
@@ -501,7 +501,9 @@ public class AppDB {
         }
     }
 
-    public void loadFavNewsList(ArrayList<NewsListElement> favNewsListData) {
+    public ArrayList<NewsListElement> loadFavNewsList() {
+        ArrayList<NewsListElement> favNewsListData = new ArrayList<>();
+
         Cursor cursor = mDatabase.query("fav_news_detail", null, null, null, null, null, null);
 
         LinkedList<NewsListElement> tmpData = new LinkedList<>();
@@ -540,6 +542,8 @@ public class AppDB {
                 cursor.close();
             }
         }
+
+        return favNewsListData;
     }
 
     public JSONObject loadSubscribeNewsBeforeNew(int lastNewsId) {
@@ -571,33 +575,33 @@ public class AppDB {
             }
         }
 
-            cursor = mDatabase.query("theme_news", null, "theme_id=" + themeId + " AND order_id > " + orderId, null, null, null, null, String.valueOf(limit));
+        cursor = mDatabase.query("theme_news", null, "theme_id=" + themeId + " AND order_id > " + orderId, null, null, null, null, String.valueOf(limit));
 
-            try {
-                if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                    do {
-                        int newsId = cursor.getInt(cursor.getColumnIndex("news_id"));
-                        String jsonStr = cursor.getString(cursor.getColumnIndex("json"));
-                        JSONObject jsonItem = new JSONObject(jsonStr);
-                        stories.put(jsonItem);
+        try {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    int newsId = cursor.getInt(cursor.getColumnIndex("news_id"));
+                    String jsonStr = cursor.getString(cursor.getColumnIndex("json"));
+                    JSONObject jsonItem = new JSONObject(jsonStr);
+                    stories.put(jsonItem);
 
-                    } while (cursor.moveToNext());
+                } while (cursor.moveToNext());
 
-                } else if (cursor != null && cursor.getCount() == 0) {
+            } else if (cursor != null && cursor.getCount() == 0) {
 
-                } else {
-                    Log.d("**", "loadSubscribeNewsBefore error");
-                    return null;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                Log.d("**", "Exception: " + e);
+            } else {
+                Log.d("**", "loadSubscribeNewsBefore error");
                 return null;
-            } finally {
-                if (cursor != null) {
-                    cursor.close();
-                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("**", "Exception: " + e);
+            return null;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
 
 
         if (stories.length() == 0) {

@@ -1,13 +1,12 @@
 package com.dengit.openzhihudaily.ui;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,6 +25,7 @@ import com.dengit.openzhihudaily.R;
 import com.dengit.openzhihudaily.adapter.DrawerListAdapter;
 import com.dengit.openzhihudaily.data.AppDB;
 import com.dengit.openzhihudaily.data.HttpAccessor;
+import com.dengit.openzhihudaily.fragment.FavFragment;
 import com.dengit.openzhihudaily.fragment.HomeFragment;
 import com.dengit.openzhihudaily.fragment.SubscribeFragment;
 import com.dengit.openzhihudaily.model.DrawerListElement;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity
     private TextView draw_download_progress;
     private View mDrawerHeaderFirstItem;
     private Toolbar mToolbar;
+    private boolean mFavFragOpened = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +79,13 @@ public class MainActivity extends AppCompatActivity
         drawerHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchTheme(HomeFragment.HOME_TITLE, new HomeFragment());
+//
+//                if (mFavFragOpened) {
+//                    mFavFragOpened = false;
+//                    invalidateOptionsMenu();
+//                }
+//
+//                switchTheme(HomeFragment.HOME_TITLE, new HomeFragment());
             }
         });
 
@@ -87,12 +94,12 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent();
-                intent.setClass(MainActivity.this, FavActivity.class);
-                startActivity(intent);
+                if (!mFavFragOpened) {
+                    mFavFragOpened = true;
+                    invalidateOptionsMenu();
+                }
 
-                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-                drawer.closeDrawer(GravityCompat.START);
+                switchTheme("0 条收藏", new FavFragment());
             }
         });
 
@@ -109,6 +116,12 @@ public class MainActivity extends AppCompatActivity
         mDrawerHeaderFirstItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (mFavFragOpened) {
+                    mFavFragOpened = false;
+                    invalidateOptionsMenu();
+                }
+
                 switchSelectedBackground(DrawerListAdapter.HOME_POS); //from others to home
                 switchTheme(HomeFragment.HOME_TITLE, new HomeFragment());
             }
@@ -121,9 +134,16 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("**", "click position: " + position);
+
+                if (mFavFragOpened) {
+                    mFavFragOpened = false;
+                    invalidateOptionsMenu();
+                }
+
                 switchSelectedBackground(position - mDrawerList.getHeaderViewsCount());
 
                 DrawerListElement element = (DrawerListElement) mDrawerListAdapter.getItem(position - mDrawerList.getHeaderViewsCount());
+
                 switchTheme(element.name, SubscribeFragment.newInstance(element.id));
             }
         });
@@ -225,8 +245,6 @@ public class MainActivity extends AppCompatActivity
         manager.beginTransaction().replace(R.id.container, toFragment).commit();
         mCurrFragment = toFragment;
 
-        supportInvalidateOptionsMenu();
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
@@ -244,6 +262,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+
+        if (mFavFragOpened) {
+            menu.clear();
+            return true;
+        }
 
         int currCategoryPos = mDrawerListAdapter.getCurrCategoryPos();
 
@@ -265,8 +288,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
-        }
+    }
 
         return super.onOptionsItemSelected(item);
     }
