@@ -79,13 +79,6 @@ public class MainActivity extends AppCompatActivity
         drawerHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
-//                if (mFavFragOpened) {
-//                    mFavFragOpened = false;
-//                    invalidateOptionsMenu();
-//                }
-//
-//                switchTheme(HomeFragment.HOME_TITLE, new HomeFragment());
             }
         });
 

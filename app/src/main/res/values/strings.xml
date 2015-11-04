@@ -45,5 +45,7 @@
     <string name="preferences_push">推送消息</string>
     <string name="preferences_shake_to_dark_mode">摇一摇夜间/白天模式</string>
     <string name="preferences_shake_to_dark_mode_prompt">仅首页/文章页可用</string>
+    <string name="navigation_drawer_open">open drawer</string>
+    <string name="navigation_drawer_close">close drawer</string>
 
 </resources>
