@@ -36,13 +36,13 @@ All rights are belong to Zhihu.Inc.
   - [picasso][2]
   - [viewpagerindictor][3]
   
-## Thanks for these projects, they inspire this project
+## Thanks for these projects, they inspire me
   - [ZhihuPaper][4]
   - [ZhihuDailyPurify][5]
   - [AnimeTaste][6]
 
 ## [APIs][7]
-  - all applauses are belong to [@izzyleung][8], becuase datas from APIs are the start point of all works.
+  - all applauses are belong to [@izzyleung][8], becuase datas from APIs are the start point of all my works.
   
 ## License
     Copyright 2015 dengit
@@ -59,7 +59,7 @@ All rights are belong to Zhihu.Inc.
     See the License for the specific language governing permissions and
     limitations under the License.
 
-  [0]: https://cloud.githubusercontent.com/assets/11329773/10941458/7702533c-8346-11e5-84b9-b295bde5f22b.gif
+  [0]: https://cloud.githubusercontent.com/assets/11329773/10941824/1700950a-8348-11e5-9b9a-6ed4c024e8db.gif
   [1]: https://github.com/loopj/android-async-http
   [2]: https://github.com/square/picasso
   [3]: https://github.com/JakeWharton/Android-ViewPagerIndicator
