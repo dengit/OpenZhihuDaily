@@ -22,4 +22,12 @@ All rights are belong to Zhihu.Inc.
   - picasso
   - viewpagerindictor
   
+## Thanks for those projects
+  - zhihupaper
+  - purifyzhihu
+  - AnimeTaste
+
+## API
+  - all applauses are belong to him
+  
 ## License
