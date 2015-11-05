@@ -1,8 +1,8 @@
 # OpenZhihuDaily
-An open source version of ZhihuDaily for studying. Design and Resources are almost from original ZhihuDaily App from Zhihu.Inc.
+An open source version of ZhihuDaily for studying. Design and Resources are almost from original ZhihuDaily app of Zhihu.Inc.
 All rights are belong to Zhihu.Inc.
 
-## Gif moive of OpenZhihuDaily
+## Gif movie of OpenZhihuDaily
 ![][0]
 
 ## Covered features
@@ -21,7 +21,7 @@ All rights are belong to Zhihu.Inc.
     - long comments and short comments show
     
   - local cache
-    - most browsed datas are saved into sqlite. by contrast, official App saves those datas with files
+    - most downloaded datas are saved into sqlite. by contrast, official app saves those datas with files
   
 ## Uncovered features
   most of these are interactional features, they require an authorization via login
@@ -31,12 +31,12 @@ All rights are belong to Zhihu.Inc.
   - share
   - subscribe theme
 
-## Thanks for these thirdpart libs, they do good jobs
+## These thirdpart libs do good jobs
   - [android-async-http][1]
   - [picasso][2]
   - [viewpagerindictor][3]
   
-## Thanks for these projects, they inspire me
+## These projects inspire me
   - [ZhihuPaper][4]
   - [ZhihuDailyPurify][5]
   - [AnimeTaste][6]
