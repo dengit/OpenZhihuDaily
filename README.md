@@ -42,7 +42,7 @@ All rights are belong to Zhihu.Inc.
   - [AnimeTaste][6]
 
 ## [APIs][7]
-  - all applauses are belong to [@izzyleung][8], becuase datas from APIs are the start point of all my works.
+  - all applauses are belong to [@izzyleung][8], becuase datas from APIs are the start point of all my works. Also, you may      need a nice tool to analyse the http data, [*Fiddler*][9] is worth you to taste.
   
 ## License
     Copyright 2015 dengit
@@ -68,4 +68,5 @@ All rights are belong to Zhihu.Inc.
   [6]: https://github.com/daimajia/AnimeTaste
   [7]: https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90
   [8]: https://github.com/izzyleung
+  [9]: http://www.telerik.com/fiddler
   
