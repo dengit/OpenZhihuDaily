@@ -1,6 +1,7 @@
 # OpenZhihuDaily
 An open source version of ZhihuDaily for studying. Design and Resources are almost from original ZhihuDaily APP of Zhihu.Inc.
 All rights are belong to Zhihu.Inc.
+
 一个ZhihuDaily的开源客户端实现，仅用来学习研究。大部分UI设计，资源来自Zhihu.Inc的ZhihuDaily, 包含的所有信息与内容的版权皆归Zhihu.Inc所有。
 
 ## GIF movie of OpenZhihuDaily - GIF动画
@@ -22,11 +23,11 @@ All rights are belong to Zhihu.Inc.
     - long comments and short comments show - 长短评论显示
     
   - local cache - 数据本地缓存
-    - most downloaded datas are saved into SQLite. by contrast, official APP saves those datas with files
+    - most downloaded datas are saved into SQLite. by contrast, official APP saves those datas with files.
       大部分浏览过的内容都存储在SQLite数据库中，相比之下，官方的APP则存储在文件内
   
 ## Uncovered features - 未覆盖的特性
-  most of these are interactive features, they require an authorization via login
+  most of these are interactive features, they require an authorization via login.
   这些未覆盖的特性大部分是互交型的，它们需要通过登录进行授权
 
   - login - 登录
