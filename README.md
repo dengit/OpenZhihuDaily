@@ -17,7 +17,7 @@ All rights are belong to Zhihu.Inc.
     - drawer - 抽屉布局
     - theme switch - 日报主题切换
     - browse favorites - 收藏夹功能
-    - download progress - 下载进度显示
+    - download offline - 离线下载
     - read or unread status of story - 条目已读状态
     - story content show - 正文内容显示
     - long comments and short comments show - 长短评论显示
