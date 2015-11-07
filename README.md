@@ -4,7 +4,7 @@ All rights are belong to Zhihu.Inc.
 
 一个ZhihuDaily的开源客户端实现，仅用来学习研究。大部分UI设计、资源均来自Zhihu.Inc的ZhihuDaily, 包含的所有信息与内容的版权皆归Zhihu.Inc所有。
 
-## GIF movie of OpenZhihuDaily - GIF动画
+## GIF movie of OpenZhihuDaily - GIF演示
 ![][0]
 
 ## Covered features - 已覆盖的特性
