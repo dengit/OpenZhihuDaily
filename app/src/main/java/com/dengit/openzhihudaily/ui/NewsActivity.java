@@ -250,22 +250,30 @@ public class NewsActivity extends AppCompatActivity {
         private static final String TAG = "**NewsDetail";
 
         public String buildHtml(Context context) {
-            String template = Utils.readFileFromAssets(context, "template.html");
-            String html = template.replace("{content}", body);
+            try {
+                //todo body is null when response.type = 1
+                String template = Utils.readFileFromAssets(context, "template.html");
+                String html = template.replace("{content}", body);
+    
+    
+                String imgHolder = "<div class=\"img-wrap\">" +
+                                    "<h1 class=\"headline-title\">%s</h1>" +
+                                    "<span class=\"img-source\">%s</span>" +
+                                    "<img src=\"%s\" alt=\"\">" +
+                                    "<div class=\"img-mask\"></div>";
+    
+    
+                imgHolder = String.format(imgHolder, title, image_source, image);
+    
+                String oldImgHolder = "<div class=\"img-place-holder\">";
+    
+                return html.replace(oldImgHolder, imgHolder);
+            
+            } catch (Exception e) {
+                    e.printStackTrace();
+            }
 
-
-            String imgHolder = "<div class=\"img-wrap\">" +
-                                "<h1 class=\"headline-title\">%s</h1>" +
-                                "<span class=\"img-source\">%s</span>" +
-                                "<img src=\"%s\" alt=\"\">" +
-                                "<div class=\"img-mask\"></div>";
-
-
-            imgHolder = String.format(imgHolder, title, image_source, image);
-
-            String oldImgHolder = "<div class=\"img-place-holder\">";
-
-            return html.replace(oldImgHolder, imgHolder);
+            return "";
         }
 
         private class NewsDetailSection {
