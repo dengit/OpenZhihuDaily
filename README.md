@@ -36,7 +36,7 @@ All rights are belong to Zhihu.Inc.
   - share - 分享
   - subscribe theme - 订阅主题
 
-## These thirdpart libs do good jobs - 感谢以下第三方库
+## These thirdparty libs do good jobs - 感谢以下第三方库
   - [android-async-http][1]
   - [picasso][2]
   - [viewpagerindictor][3]
