@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.TextHttpResponseHandler;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -24,6 +25,7 @@ public class HttpAccessor {
     public static final String URL_STARTUP_IMAGE = "http://news-at.zhihu.com/api/4/start-image/%s"; //%s->1080*1776
     public static final String URL_NEWS_LATEST = "http://news-at.zhihu.com/api/4/news/latest";
     public static final String URL_NEWS_DETAIL = "http://news-at.zhihu.com/api/4/news/%s"; //%s->news_id
+    public static final String URL_RELOCATION = "http://daily.zhihu.com/story/%s"; //%s->news_id
     public static final String URL_NEWS_BEFORE = "http://news.at.zhihu.com/api/4/news/before/%s"; //%s->date
     public static final String URL_SUBSCRIBE_NEWS_BEFORE = "http://news-at.zhihu.com/api/4/theme/%s/before/%s"; //%s->themeId %s->lastNewsId
     public static final String URL_NEWS_EXTRA = "http://news-at.zhihu.com/api/4/story-extra/%s"; //%s->news_id
@@ -51,6 +53,14 @@ public class HttpAccessor {
     private void get(String request, JsonHttpResponseHandler handler) {
         AsyncHttpClient client = new AsyncHttpClient();
         client.setTimeout(10 * 1000);
+        client.get(request, handler);
+    }
+
+    private void getHandlingRedirect(String request, TextHttpResponseHandler handler) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.setTimeout(10 * 1000);
+        client.setEnableRedirects(false);
+//        client.getHttpClient().getParams().setParameter(ClientPNames.)
         client.get(request, handler);
     }
 
@@ -147,17 +157,19 @@ public class HttpAccessor {
         get(String.format(URL_NEWS_DETAIL, String.valueOf(newsId)), handler);
     }
 
+    public void tryToHandleRelocation(int newsId, int type, TextHttpResponseHandler handler) {
+        if (type == 1) {
+            getHandlingRedirect(String.format(URL_RELOCATION, String.valueOf(newsId)), handler);
+        }
+    }
+
+
     public void getLongComment(int newsId, JsonHttpResponseHandler handler) {
         get(String.format(URL_NEWS_LONG_COMMENT, String.valueOf(newsId)), handler);
     }
 
     public void getShortComment(int newsId, JsonHttpResponseHandler handler) {
         get(String.format(URL_NEWS_SHORT_COMMENT, String.valueOf(newsId)), handler);
-    }
-
-
-    public void getShortCommentBefore(int newsId, int commentId, JsonHttpResponseHandler handler) {
-        get(String.format(URL_NEWS_SHORT_COMMENT_BEFORE, String.valueOf(newsId), String.valueOf(commentId)), handler);
     }
 
     public void getNewsExtra(int newsId, JsonHttpResponseHandler handler) {

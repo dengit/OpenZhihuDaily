@@ -21,7 +21,10 @@ import com.dengit.openzhihudaily.utils.ThreadPoolUtils;
 import com.dengit.openzhihudaily.utils.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.apache.http.Header;
 import org.json.JSONObject;
+
+import java.util.Arrays;
 
 /**
  * Created by dengit on 15/10/14.
@@ -162,6 +165,16 @@ public class NewsActivity extends AppCompatActivity {
         });
 
         HttpAccessor.instance().getNewsDetail(mNewsId, new DetailJsonHttpResponseHandler());
+        //        HttpAccessor.instance().tryToHandleRelocation(mNewsId, mNewsInfo.type, new TextHttpResponseHandler() {
+        //
+        //            @Override
+        //            public void onSuccess(int statusCode, Header[] headers, String responseBody) {
+        //                super.onSuccess(statusCode, headers, responseBody);
+        //
+        //                Log.d("**", "responseBody:" + responseBody);
+        //                mWebView.loadDataWithBaseURL(null, responseBody, "text/html", "UTF-8", null);
+        //            }
+        //        });
         HttpAccessor.instance().getNewsExtra(mNewsId, new JsonHttpResponseHandler() {
 
             @Override
@@ -220,10 +233,18 @@ public class NewsActivity extends AppCompatActivity {
 
             if (statusCode == 200) {
 
+                if (checkIfNeedToRelocation(responseTmp)) {
+                    return;
+                }
+
                 ThreadPoolUtils.execute(new Runnable() {
                     @Override
                     public void run() {
                         mNewsDetail.build(responseTmp);
+
+                        if (mNewsInfo.type == 1) {
+                            return;
+                        }
 
                         runOnUiThread(new Runnable() {
                             @Override
@@ -239,6 +260,82 @@ public class NewsActivity extends AppCompatActivity {
         }
     }
 
+    private boolean checkIfNeedToRelocation(JSONObject response) {
+
+        if (response == null) {
+            return false;
+        }
+
+        try {
+
+            int newsId = response.getInt("id");
+            //todo handle type=1
+
+
+            Log.d("**", "**response.getInt(\"type\"):" + response.getInt("type"));
+            if (response.has("type") && response.getInt("type") == 1) {
+                Log.d("**", "**tryToHandleRelocation");
+                HttpAccessor.instance().tryToHandleRelocation(mNewsId, mNewsInfo.type, new JsonHttpResponseHandler() {
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, Throwable e, JSONObject errorResponse) {
+                        super.onFailure(statusCode, headers, e, errorResponse);
+                        Log.d("**", "**statusCode: " + statusCode);
+                        Log.d("**", "**errorResponse: " + errorResponse);
+                    }
+
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, String responseBody, Throwable e) {
+                        super.onFailure(statusCode, headers, responseBody, e);
+                        Log.d("**", "**statusCode: " + statusCode);
+                        Log.d("**", "**responseBody: " + responseBody);
+                        Log.d("**", "**headers: " + Arrays.toString(headers));
+                        Log.d("**", "**Location: " + headers[5].getValue());
+
+                        final String url = headers[5].getValue();
+
+                        mWebView.loadUrl(url);
+
+                        //                        HttpAccessor.instance().getDirect(url, new JsonHttpResponseHandler() {
+                        //                            @Override
+                        //                            public void onSuccess(int statusCode, Header[] headers, String responseBody) {
+                        //                                super.onSuccess(statusCode, headers, responseBody);
+                        //
+                        //                                final String responseBodyTmp = responseBody;
+                        //
+                        //                                Log.d("**", "responseBodyTmp.length: " + responseBodyTmp.length());
+                        //                                if (statusCode == 200) {
+                        //                                    webViewLoadDataDirect(responseBodyTmp);
+                        //
+                        //                                }
+                        //                            }
+                        //                        });
+                        //
+
+                    }
+
+                    @Override
+                    public void onSuccess(int statusCode, JSONObject response) {
+                        super.onSuccess(statusCode, response);
+
+                        Log.d("**", "**statusCode: " + statusCode);
+                        Log.d("**", "**response: " + response);
+                    }
+                });
+                return true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    private void webViewLoadDataDirect(String responseBodyTmp) {
+        mWebView.loadDataWithBaseURL(null, responseBodyTmp, "text/html", "UTF-8", null);
+    }
+
     private void webViewLoadData(NewsDetail mNewsDetail) {
         mWebView.loadDataWithBaseURL(null, mNewsDetail.buildHtml(this), "text/html", "UTF-8", null);
     }
@@ -250,28 +347,28 @@ public class NewsActivity extends AppCompatActivity {
         private static final String TAG = "**NewsDetail";
 
         public String buildHtml(Context context) {
+
             try {
-                //todo body is null when response.type = 1
                 String template = Utils.readFileFromAssets(context, "template.html");
                 String html = template.replace("{content}", body);
-    
-    
+
+
                 String imgHolder = "<div class=\"img-wrap\">" +
-                                    "<h1 class=\"headline-title\">%s</h1>" +
-                                    "<span class=\"img-source\">%s</span>" +
-                                    "<img src=\"%s\" alt=\"\">" +
-                                    "<div class=\"img-mask\"></div>";
-    
-    
+                        "<h1 class=\"headline-title\">%s</h1>" +
+                        "<span class=\"img-source\">%s</span>" +
+                        "<img src=\"%s\" alt=\"\">" +
+                        "<div class=\"img-mask\"></div>";
+
+
                 imgHolder = String.format(imgHolder, title, image_source, image);
-    
+
                 String oldImgHolder = "<div class=\"img-place-holder\">";
-    
+
                 return html.replace(oldImgHolder, imgHolder);
-            
             } catch (Exception e) {
-                    e.printStackTrace();
+                e.printStackTrace();
             }
+
 
             return "";
         }
@@ -299,7 +396,7 @@ public class NewsActivity extends AppCompatActivity {
 
             if (!response.has("body")) {
                 Log.d(TAG, "** !response.has(\"body\")");
-                return;
+                //                return;
             }
 
             try {
@@ -309,7 +406,7 @@ public class NewsActivity extends AppCompatActivity {
                 image = response.has("image") ? response.getString("image") : "";
                 title = response.getString("title");
                 share_url = response.getString("share_url");
-                body = response.getString("body");
+                body = response.has("body") ? response.getString("body") : "";
 
                 if (response.has("section")) {
 

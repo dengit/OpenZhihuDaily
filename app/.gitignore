@@ -29,5 +29,9 @@ build/
 *.iws
 .idea/
 
+
+src/test/
+src/androidTest/
+
 #gradle
 .gradle/

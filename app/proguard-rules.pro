@@ -15,3 +15,11 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+#-keep class com.loopj.**
+#-keep class com.squareup.**
+#-keep class com.viewpagerindicator.**
+#
+#-dontwarn com.loopj.**
+#-dontwarn com.squareup.**
+#-dontwarn com.viewpagerindicator.**

@@ -99,6 +99,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:textSize="14sp"
+                android:visibility="gone"
                 android:text="展开"/>
         </RelativeLayout>
     </RelativeLayout>

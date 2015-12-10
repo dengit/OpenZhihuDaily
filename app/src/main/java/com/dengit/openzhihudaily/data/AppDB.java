@@ -622,7 +622,7 @@ public class AppDB {
     public void saveSubscribeNewsBeforeNew(int mThemeId, int lastNewsId, JSONObject response, LinkedHashMap<Integer, SubscribeNewsListElement> subscribeNewsMapData) {
 
         Log.d("**", "saveSubscribeNewsBeforeNew 1: " + subscribeNewsMapData.size());
-        if (subscribeNewsMapData.size() == 0) {
+        if (subscribeNewsMapData.size() == 0) {//todo subscribeNewsMapData.size() alwasy > 0?
 
             Cursor cursor = mDatabase.query("theme_news", null, "theme_id=" + mThemeId, null, null, null, null);
             try {
@@ -721,7 +721,6 @@ public class AppDB {
 
         LinkedHashSet<Integer> newSet = new LinkedHashSet<>();
         Set<Integer> oldSet = splitB.keySet();
-
 
         newSet.addAll(incSubscribeNewsMapData.keySet());
         newSet.addAll(oldSet);
