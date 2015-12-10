@@ -1,0 +1,22 @@
+language: android
+android:
+  components:
+  - build-tools-23.0.1
+  - android-23
+  - extra-android-m2repository
+  - extra-android-support
+before_install:
+- chmod +x gradlew
+script:
+- "./gradlew assembleRelease"
+before_deploy:
+- mv app/build/outputs/apk/app-release-unsigned.apk app/build/outputs/apk/openzhihudaily.apk
+
+deploy:
+  provider: releases
+  api_key:
+    secure: qNzzVsIV5/A6cKX/VQKXN83VCAyW0EpkzZ5q9IjjkSGvgU29CBhoKLdz9wM6bohNBMtNZ0X/SWinEwDi8SNMxSsJeMVgy1yZ+pEdDRNVTUS+2iNR7kuP8tbm/5nmuy71WfVt4kBhWcKwhinL0cvGCkFhjD6jMiZhZpB+YbolEhp/BwCMGIdPPF5fGOSSFVvK6lCiNAhQ79GCfbS9A5JJuKWGiXDQYEvYlOlz3a1hBQShl2V/BICkiA9a7oflo7SH8U9q5alMJMwsBK3a5qmPRArn9rF5rNSyHFE0aTZf/Ir/QRoLq62lNV7XnjVQSEcNYqOPs8l3ubMTNuqOfjMV2Me9w1SF9dwK+MhogVZZiF5xME3l6B+qWjc8krouiLbQu8SiTS7E9rNcxU03btu9maxMQDWiyY7zKOLXFu/yzNVckZS/+516D2WkOHRlUGtcxlNwjOMpLb3KrBuawj7ILLVkZXB53KlPo1HPnDLD+SNxDNIntR0yKWei5nL5GYCWMy+o6kFkizmWCXEIH5/+UN38f5r1BlD9tgm69sOlg2Krra0wyIti83ciamMO+ZZoMNoBkFwxVZeElycfZf3dUV0MT+SX1gKhSflb9cs1xN2KTU3t7fTFCZW12ZOKJndci+mt4npXnfWw5rCg1prrzIxmohd2UcHYM0foFbllR7E=
+  file: app/build/outputs/apk/openzhihudaily.apk
+  on:
+#    repo: dengit/OpenZhihuDaily
+    tags: true
