@@ -838,8 +838,6 @@ public class AppDB {
     }
 
     public void saveNewsThemes(JSONObject response) {
-
-
         HashSet<Integer> subscribedThemeIds = new HashSet<>();
 
         Cursor cursor = mDatabase.query("themes", null, "is_subscribed=" + 1, null, null, null, null);
