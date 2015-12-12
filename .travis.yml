@@ -10,7 +10,7 @@ before_install:
 script:
 - "./gradlew assembleRelease"
 before_deploy:
-- mv app/build/outputs/apk/app-release-unsigned.apk app/build/outputs/apk/openzhihudaily.apk
+- mv app/build/outputs/apk/app-release.apk app/build/outputs/apk/openzhihudaily.apk
 
 deploy:
   provider: releases
