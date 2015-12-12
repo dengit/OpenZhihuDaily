@@ -11,6 +11,17 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+
+    signingConfigs {
+        release {
+            storeFile file(".askeystore.jks")
+            storePassword System.getenv("KEYSTORE_PASS")
+            keyAlias System.getenv("ALIAS_NAME")
+            keyPassword System.getenv("ALIAS_PASS")
+        }
+    }
+
     buildTypes {
         release {
 //            minifyEnabled true
@@ -22,14 +33,6 @@ android {
         }
     }
 
-    signingConfigs {
-        release {
-            storeFile file(".askeystore.jks")
-            storePassword System.getenv("KEYSTORE_PASS")
-            keyAlias System.getenv("ALIAS_NAME")
-            keyPassword System.getenv("ALIAS_PASS")
-        }
-    }
 
 }
 
