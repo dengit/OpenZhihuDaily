@@ -1,5 +1,5 @@
 # OpenZhihuDaily
-[![Build Status](https://travis-ci.org/dengit/OpenZhihuDaily.svg?branch=master)](https://travis-ci.org/dengit/OpenZhihuDaily)
+[![Build Status](https://travis-ci.org/dengit/OpenZhihuDaily.svg?branch=master)](https://travis-ci.org/dengit/OpenZhihuDaily) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 An open source version of ZhihuDaily for studying. Design and Resources are almost from original ZhihuDaily APP of Zhihu.Inc.
 All rights are belong to Zhihu.Inc.
