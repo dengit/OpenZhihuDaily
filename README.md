@@ -1,59 +1,55 @@
 # OpenZhihuDaily
 [![Build Status](https://travis-ci.org/dengit/OpenZhihuDaily.svg?branch=master)](https://travis-ci.org/dengit/OpenZhihuDaily) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
+> ## [中文看这里](https://github.com/dengit/OpenZhihuDaily/edit/master/README-zh.md)
+
 An open source version of ZhihuDaily for studying. Design and Resources are almost from original ZhihuDaily APP of Zhihu.Inc.
-All rights are belong to Zhihu.Inc.
+All rights are belong to Zhihu.Inc.。
 
-一个ZhihuDaily的开源客户端实现，仅用来学习研究。大部分UI设计、资源均来自Zhihu.Inc的ZhihuDaily, 包含的所有信息与内容的版权皆归Zhihu.Inc所有。
-
-## GIF movie of OpenZhihuDaily - GIF演示
+## GIF
 ![][0]
 
-## Covered features - 已覆盖的特性
-  - content presentation - 内容展示
-    - splash animation as loading - splash 加载动画
-    - list pulls to refresh - 列表下拉刷新数据
-    - list slides up to load more - 列表上滑加载更多数据
-    - top stories banner - top stories滚动横幅
-    - action bar title switch - action bar 标题的实时切换
-    - drawer - 抽屉布局
-    - theme switch - 日报主题切换
-    - browse favorites - 收藏夹功能
-    - download offline - 离线下载
-    - read or unread status of story - 条目已读状态
-    - story content show - 正文内容显示
-    - long comments and short comments show - 长短评论显示
+## Covered features
+  - content presentation
+    - splash animation as loading
+    - list pulls to refresh
+    - list slides up to load more
+    - top stories banner
+    - action bar title switch
+    - drawer
+    - theme switch
+    - browse favorites
+    - download offline
+    - read or unread status of story
+    - story content show
+    - long comments and short comments show
     
-  - local cache - 数据本地缓存
+  - local cache
     - most downloaded datas are saved into SQLite. by contrast, official APP saves those datas with files.
-      大部分浏览过的内容都存储在SQLite数据库中，相比之下，官方的APP则存储在文件内
   
-## Uncovered features - 未覆盖的特性
+## Uncovered features
   most of these are interactive features, they require an authorization via login.
-  这些未覆盖的特性大部分是互交型的，它们需要通过登录进行授权
 
-  - login - 登录
-  - make commends or reply to others - 编辑评论或回复评论
-  - like vote - 点赞
-  - share - 分享
-  - subscribe theme - 订阅主题
+  - login
+  - make commends or reply to others
+  - like vote
+  - share
+  - subscribe theme
 
-## These thirdparty libs do good jobs - 感谢以下第三方库
+## These thirdparty libs do good jobs
   - [android-async-http][1]
   - [picasso][2]
   - [viewpagerindictor][3]
   
-## These projects inspire me - 感谢以下开源项目
+## These projects inspire me
   - [ZhihuPaper][4]
   - [ZhihuDailyPurify][5]
   - [AnimeTaste][6]
 
 ## [APIs][7]
-  - all applauses are belong to [@izzyleung][8], becuase datas from APIs are the start point of all my works. Also, you may      need a nice tool to analyse the http data, [*Fiddler*][9] is worth you to taste.
-  
-  感谢[@izzyleung][8]在APIs分析方面做出的努力。[*Fiddler*][9]是一个不错的HTTP分析工具。
+  - all applauses are belong to [@izzyleung][8], becuase datas from APIs are the start point of all my works. Also, you may      need a nice tool to analyse the http data, [*Fiddler*][9] is worth you to taste.。
 
-## License - 许可证
+## License
     Copyright 2015 dengit
     
     Licensed under the Apache License, Version 2.0 (the "License");
