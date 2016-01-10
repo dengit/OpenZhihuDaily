@@ -1,5 +1,6 @@
 # OpenZhihuDaily
 [![Build Status](https://travis-ci.org/dengit/OpenZhihuDaily.svg?branch=master)](https://travis-ci.org/dengit/OpenZhihuDaily) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Release](https://img.shields.io/github/release/dengit/OpenZhihuDaily.svg)](https://github.com/dengit/OpenZhihuDaily/releases) ![Tag](https://img.shields.io/github/tag/dengit/OpenZhihuDaily.svg)
 
 一个ZhihuDaily的开源客户端实现，仅用来学习研究。大部分UI设计、资源均来自Zhihu.Inc的ZhihuDaily, 包含的所有信息与内容的版权皆归Zhihu.Inc所有。
 
