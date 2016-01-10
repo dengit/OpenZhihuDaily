@@ -1,5 +1,6 @@
 # OpenZhihuDaily
 [![Build Status](https://travis-ci.org/dengit/OpenZhihuDaily.svg?branch=master)](https://travis-ci.org/dengit/OpenZhihuDaily) [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Release](https://img.shields.io/github/release/dengit/OpenZhihuDaily.svg)](https://github.com/dengit/OpenZhihuDaily/releases) ![Tag](https://img.shields.io/github/tag/dengit/OpenZhihuDaily.svg)
 
 > ## [中文看这里](https://github.com/dengit/OpenZhihuDaily/blob/master/README-zh.md)
 
